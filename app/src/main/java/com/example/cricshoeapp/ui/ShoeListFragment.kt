@@ -24,7 +24,7 @@ import javax.inject.Inject
 class ShoeListFragment : Fragment() {
 
     private lateinit var binding: FragmentShoeListBinding
-    private val adapter: ShoeAdapter by lazy {
+    private val mAdapter: ShoeAdapter by lazy {
         ShoeAdapter()
     }
     @Inject
@@ -48,7 +48,8 @@ class ShoeListFragment : Fragment() {
 
         with(binding.shoeRecyclerView){
             layoutManager = GridLayoutManager(requireContext(), 2, VERTICAL, false)
-            adapter = adapter
+            adapter = mAdapter
+            setHasFixedSize(true)
         }
 
         observeData()
@@ -68,8 +69,7 @@ class ShoeListFragment : Fragment() {
                     is Success -> {
                         binding.progressBar.visibility = View.GONE
                         // Set data to recycler
-                        Toast.makeText(context, "${it.shoes.size} Data Loaded", Toast.LENGTH_SHORT).show()
-                        adapter.differ.submitList(it.shoes)
+                        mAdapter.differ.submitList(it.shoes)
                     }
                 }
             }

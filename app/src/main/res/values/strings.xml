@@ -2,4 +2,9 @@
     <string name="app_name">CricShoeApp</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="price">Price: </string>
+    <string name="_1200">$1200</string>
+    <string name="add_to_cart">Add To Cart</string>
+    <string name="sneakership">SNEAKERSHIP</string>
+    <string name="popular">Popular</string>
 </resources>

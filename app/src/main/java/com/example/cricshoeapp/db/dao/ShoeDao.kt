@@ -15,9 +15,12 @@ interface ShoeDao {
     @Query("Select * from tblShoe")
     fun getAllShoes(): Flow<List<Sneaker>>
 
-    @Query("Select * from tblShoe where id = 0")
-    fun getShoes(): Sneaker
+    @Query("Select * from tblShoe where id = :shoeId")
+    fun getShoes(shoeId: Int): Flow<Sneaker>?
 
     @Query("DELETE FROM tblShoe")
     suspend fun deleteAll()
+
+    @Query("Update tblShoe set isAddedToCart = :status where id = :sId")
+    fun updateCartStatus(status: Boolean, sId: Int)
 }
