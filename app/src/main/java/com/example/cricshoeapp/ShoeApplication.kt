@@ -1,6 +1,7 @@
 package com.example.cricshoeapp
 
 import android.app.Application
+import com.example.cricshoeapp.di.DaggerShoeApplicationComponent
 import com.example.cricshoeapp.di.ShoeApplicationComponent
 
 class ShoeApplication : Application() {

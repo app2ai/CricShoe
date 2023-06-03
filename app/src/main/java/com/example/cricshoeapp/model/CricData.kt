@@ -22,7 +22,7 @@ data class Sneaker(
     val release_year: Int,
     val retail_price_cents: Int,
     val shoe_condition: String,
-    val size_range: List<Int>,
+    val size_range: String,
     val sku: String,
     val slug: String,
     val status: String,

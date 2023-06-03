@@ -13,5 +13,5 @@ interface ShoeDao {
     suspend fun addShoe(sneaker: Sneaker): Long
 
     @Query("Select * from tblShoe")
-    suspend fun getAllShoes(): Flow<List<Sneaker>?>
+    fun getAllShoes(): Flow<List<Sneaker>?>
 }
