@@ -2,6 +2,7 @@ package com.example.cricshoeapp.di
 
 import android.content.Context
 import com.example.cricshoeapp.MainActivity
+import com.example.cricshoeapp.ui.ShoeListFragment
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
@@ -11,9 +12,11 @@ import javax.inject.Singleton
 @Component(modules = [ViewModelModule::class, DatabaseModule::class])
 interface ShoeApplicationComponent {
     fun inject(activity: MainActivity)
+    fun inject(fragment: ShoeListFragment)
 
     @Component.Factory
     interface Factory {
-        fun create(@BindsInstance context: Context): ShoeApplicationComponent
+        fun create(
+            @BindsInstance context: Context): ShoeApplicationComponent
     }
 }

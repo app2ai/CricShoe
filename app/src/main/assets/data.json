@@ -1,0 +1,70 @@
+{
+  "sneakers": [
+    {
+      "brand_name": "Air Jordan",
+      "details": "Black/White-Medium Grey",
+      "gender": "men",
+      "grid_picture_url": "https://image.goat.com/375/attachments/product_template_pictures/images/011/119/994/original/218099_00.png.png",
+      "main_picture_url": "https://image.goat.com/750/attachments/product_template_pictures/images/011/119/994/original/218099_00.png.png",
+      "name": "Air Jordan 1 Retro High OG 'Shadow' 2018",
+      "original_picture_url": "https://image.goat.com/attachments/product_template_pictures/images/011/119/994/original/218099_00.png.png",
+      "release_year": 2018,
+      "retail_price_cents": 16000,
+      "size_range": "8,9,10",
+      "story_html": "This Nike Air Jordan 1 Retro High OG 2018 is a retro re-release of an original 1985 colorway. The shoe features a black and medium grey leather upper with a white midsole and black outsole. It also features OG Nike Air branding on the tongue and the Wings logo on the ankle collar. It was last retroed in 2013, and a low-top version dropped in 2015."
+    },
+    {
+      "brand_name": "Air Jordan",
+      "details": "Black/Cement Grey-Summit White-Fire Red",
+      "gender": "youth",
+      "grid_picture_url": "https://image.goat.com/375/attachments/product_template_pictures/images/020/806/444/original/507844_00.png.png",
+      "main_picture_url": "https://image.goat.com/750/attachments/product_template_pictures/images/020/806/444/original/507844_00.png.png",
+      "name": "Air Jordan 4 Retro OG GS Bred 2019",
+      "original_picture_url": "https://image.goat.com/attachments/product_template_pictures/images/020/806/444/original/507844_00.png.png",
+      "release_year": 2019,
+      "retail_price_cents": 14000,
+      "size_range": "9,10,11,12",
+      "story_html": "For Chicago Bulls Fans, the historical significance of the Air Jordan 11 Retro"
+    },
+    {
+      "brand_name": "Air Jordan",
+      "details": "Black/Concord-White",
+      "gender": "men",
+      "grid_picture_url": "https://image.goat.com/375/attachments/product_template_pictures/images/008/654/900/original/52015_00.png.png",
+      "main_picture_url": "https://image.goat.com/750/attachments/product_template_pictures/images/008/654/900/original/52015_00.png.png",
+      "name": "Air Jordan 11 Retro Space Jam 2016",
+      "original_picture_url": "https://image.goat.com/attachments/product_template_pictures/images/008/654/900/original/52015_00.png.png",
+      "release_year": 2016,
+      "retail_price_cents": 22000,
+      "size_range": "9,10,11,12",
+      "story_html": "The Air Jordan 11 Retro ‘Space Jam’ 2016 commemorates the 20th anniversary of the movie ‘Space Jam.’ Worn by Michael Jordan as a Player Exclusive (PE) in both the movie and the 1995 NBA Playoffs, the 2016 retro ended up being Nike’s largest and most successful shoe launch ever. This 2016 sneaker is a more faithful reproduction of the original PE than the 2000 and 2009 retros. The sneaker also swaps the traditional for MJ’s comeback on the heel, a first for an Air Jordan 11 retail release."
+    },
+    {
+      "brand_name": "Air Jordan",
+      "details": "Gym Red/Black-White",
+      "gender": "men",
+      "grid_picture_url": "https://image.goat.com/375/attachments/product_template_pictures/images/008/870/353/original/235806_00.png.png",
+      "main_picture_url": "https://image.goat.com/750/attachments/product_template_pictures/images/008/870/353/original/235806_00.png.png",
+      "name": "Air Jordan 11 Retro Win Like 96",
+      "original_picture_url": "https://image.goat.com/attachments/product_template_pictures/images/008/870/353/original/235806_00.png.png",
+      "release_year": 2017,
+      "retail_price_cents": 22000,
+      "size_range": "9,12,13",
+      "story_html": "For Chicago Bulls Fans, the historical significance of the Air Jordan 11 Retro ‘Win Like 96’ will be abundantly clear. 1996 is the year that the Bulls capped off the regular season with a record-breaking 72 wins, on their way to a fourth NBA title in six seasons. Michael wore the Jordan 11 during that magical run, and this December 2017 release, dressed in a dazzling shade of red, honors the ’96 squad that couldn’t lose."
+    },
+    {
+      "brand_name": "Air Jordan",
+      "details": "White/Legend Blue",
+      "gender": "men",
+      "grid_picture_url": "https://image.goat.com/375/attachments/product_template_pictures/images/010/223/048/original/13607_00.png.png",
+      "main_picture_url": "https://image.goat.com/750/attachments/product_template_pictures/images/010/223/048/original/13607_00.png.png",
+      "name": "Air Jordan 11 Retro Legend Blue 2014",
+      "original_picture_url": "https://image.goat.com/attachments/product_template_pictures/images/010/223/048/original/13607_00.png.png",
+      "release_year": 2014,
+      "retail_price_cents": 20000,
+      "shoe_condition": "used",
+      "size_range": "6,7,8",
+      "story_html": "The Air Jordan 11 Retro ‘Legend Blue’ 2014 was based on the 1996 Jordan 11 ‘Columbia’ first worn by Jordan during the 1996 NBA All-Star Game. Inspired by the classic colorway Jordan wore as a Tarheel, the ‘Columbia’ first retroed in 2001 for the Jordan 11 ‘Columbia’ Retro release."
+    }
+  ]
+}

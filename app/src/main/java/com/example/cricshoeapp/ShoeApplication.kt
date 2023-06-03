@@ -5,10 +5,12 @@ import com.example.cricshoeapp.di.DaggerShoeApplicationComponent
 import com.example.cricshoeapp.di.ShoeApplicationComponent
 
 class ShoeApplication : Application() {
-    private lateinit var appComponent: ShoeApplicationComponent
+    lateinit var appComponent: ShoeApplicationComponent
     override fun onCreate() {
         super.onCreate()
-        // Initialise app component here
-        appComponent = DaggerShoeApplicationComponent.factory().create(applicationContext)
+        // Check if DB is filled up with data
+        appComponent = DaggerShoeApplicationComponent
+            .factory()
+            .create(applicationContext)
     }
 }
