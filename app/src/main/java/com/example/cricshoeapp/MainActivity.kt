@@ -3,6 +3,7 @@ package com.example.cricshoeapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.NavHostFragment
 import com.example.cricshoeapp.databinding.ActivityMainBinding
 import com.example.cricshoeapp.db.cache.DbSharedPref
 import com.example.cricshoeapp.model.Sneakers
@@ -30,12 +31,26 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         (application as ShoeApplication).appComponent.inject(this)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         if (!DbSharedPref(this).getDBStatus(DB_STATUS_KEY, false)) {
             viewModel.setupTheDatabase(provideJsonDataToList())
         }
         observeData()
+
+        // used nav controller for fragment navigation
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val myNavController = navHostFragment.navController
+
+        myNavController.addOnDestinationChangedListener { cntr, dest, args ->
+            when (dest.id) {
+                R.id.shoeListFragment -> {
+                    myNavController.popBackStack(R.id.shoeListFragment, true)
+                }
+            }
+        }
     }
 
     private fun observeData() {

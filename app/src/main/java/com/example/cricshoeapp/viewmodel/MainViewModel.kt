@@ -22,7 +22,7 @@ class MainViewModel @Inject constructor(
         val j = viewModelScope.async(Dispatchers.Default) {
             // Add dummy data to DB
             try {
-                for (i in 0..10)
+                for (i in 0 until 10)
                     dao.addShoe(sneakers.sneakers)
                 return@async true
             } catch (ex: Exception) {

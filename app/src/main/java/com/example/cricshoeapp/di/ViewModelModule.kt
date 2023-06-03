@@ -2,6 +2,7 @@ package com.example.cricshoeapp.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.cricshoeapp.viewmodel.CartViewModel
 import com.example.cricshoeapp.viewmodel.MainViewModel
 import com.example.cricshoeapp.viewmodel.ShoeListViewModel
 import dagger.Binds
@@ -23,4 +24,9 @@ interface ViewModelModule {
     @IntoMap
     @ViewModelKey(ShoeListViewModel::class)
     fun bindsShoeViewModel(viewModel: ShoeListViewModel) : ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(CartViewModel::class)
+    fun bindsCartViewModel(viewModel: CartViewModel) : ViewModel
 }

@@ -1,7 +1,6 @@
 package com.example.cricshoeapp.db.dao
 
 import androidx.room.Dao
-import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -14,7 +13,7 @@ interface ShoeDao {
     fun addShoe(sneakers: List<Sneaker>)
 
     @Query("Select * from tblShoe")
-    fun getAllShoes(): Flow<List<Sneaker>?>
+    fun getAllShoes(): Flow<List<Sneaker>>
 
     @Query("Select * from tblShoe where id = 0")
     fun getShoes(): Sneaker
