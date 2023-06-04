@@ -12,4 +12,11 @@
     <string name="remove">Remove</string>
     <string name="checkout">$ Check Out</string>
     <string name="tx_chrgs">Taxes and Charges: $40</string>
+
+    <!--Complex string-->
+    <string name="cart_shoe_price">$%d</string>
+    <string name="cart_subtotal">Subtotal: $%d</string>
+    <string name="cart_total">Total: $%d</string>
+    <string name="details_brand_name">Brand: %s</string>
+    <string name="details_rel_year">Year of Release: %d</string>
 </resources>

@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.core.os.bundleOf
@@ -71,6 +70,7 @@ class ShoeListFragment : Fragment(), ShoeItemListener, SearchView.OnQueryTextLis
         observeData()
     }
 
+    // Clear data once we comeback to list page
     override fun onResume() {
         super.onResume()
         binding.searchView.setQuery("", true)

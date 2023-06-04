@@ -52,9 +52,7 @@ class DetailsFragment : Fragment() {
         lifecycleScope.launch {
             viewModel.sneakerData.collect {
                 when (it) {
-                    OneInProgress -> {
-                        // TODO: Show loading bar
-                    }
+                    OneInProgress -> {}
                     OneFailed -> Toast.makeText(
                         context,
                         "Sneaker not loaded, please select again",
@@ -71,9 +69,9 @@ class DetailsFragment : Fragment() {
     private fun setupData(shoe: Sneaker) {
         binding.title.text = shoe.name
         binding.details.text = shoe.details
-        binding.brandName.text = "Brand:  ${shoe.brand_name}"
-        binding.yearOfRelease.text = "Year of Release: ${shoe.release_year}"
-        binding.realPrice.text = "\$${shoe.retail_price_cents / 100}"
+        binding.brandName.text = getString(R.string.details_brand_name, shoe.brand_name)
+        binding.yearOfRelease.text = getString(R.string.details_rel_year, shoe.release_year)
+        binding.realPrice.text = getString(R.string.cart_shoe_price, shoe.retail_price_cents / 100)
         binding.btnAddToCart.setOnClickListener {
             viewModel.addItemToCart(shoe.id)
             Toast.makeText(context, "Added to cart..", Toast.LENGTH_SHORT).show()

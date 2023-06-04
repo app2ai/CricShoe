@@ -13,16 +13,20 @@ import com.example.cricshoeapp.model.Sneaker
 import com.example.cricshoeapp.utils.ShoeCartItemListener
 import com.squareup.picasso.Picasso
 
-class CartAdapter(private val listener: ShoeCartItemListener) : Adapter<CartAdapter.CartViewHolder>(){
+class CartAdapter(listener: ShoeCartItemListener) : Adapter<CartAdapter.CartViewHolder>() {
 
     lateinit var binding: CartListItemBinding
     private var mlistener: ShoeCartItemListener = listener
 
-    inner class CartViewHolder: ViewHolder(binding.root) {
-        fun setData(item : Sneaker){
+    inner class CartViewHolder : ViewHolder(binding.root) {
+        fun setData(item: Sneaker) {
             binding.apply {
                 txtShoeName.text = item.name
-                txtShoePrice.text = "\$${item.retail_price_cents/100}"
+                // $ 100
+                txtShoePrice.text = this.root.context.getString(
+                    R.string.cart_shoe_price,
+                    item.retail_price_cents / 100
+                )
                 btnRemoveFromCart.setOnClickListener {
                     mlistener.clickToRemoveItem(item.id)
                 }

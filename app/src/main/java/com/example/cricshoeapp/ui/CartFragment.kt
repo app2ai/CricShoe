@@ -12,21 +12,17 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cricshoeapp.R
 import com.example.cricshoeapp.ShoeApplication
 import com.example.cricshoeapp.databinding.FragmentCartBinding
-import com.example.cricshoeapp.databinding.FragmentShoeListBinding
 import com.example.cricshoeapp.utils.ShoeCartItemListener
 import com.example.cricshoeapp.viewmodel.CartEmpty
 import com.example.cricshoeapp.viewmodel.CartFailed
 import com.example.cricshoeapp.viewmodel.CartInProgress
 import com.example.cricshoeapp.viewmodel.CartSuccess
 import com.example.cricshoeapp.viewmodel.CartViewModel
-import com.example.cricshoeapp.viewmodel.ShoeListViewModel
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -111,16 +107,16 @@ class CartFragment : Fragment(), ShoeCartItemListener {
         }
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED){
-                viewModel.subtotalLD.collect {
-                    binding.subTotal.text = "Subtotal: \$$it"
-                    binding.btnCheckOut.isEnabled = it > 0
+                viewModel.subtotalLD.collect { subtotal ->
+                    binding.subTotal.text = getString(R.string.cart_subtotal, subtotal)
+                    binding.btnCheckOut.isEnabled = subtotal > 0
                 }
             }
         }
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.totalLD.collect {
-                    binding.totalPrice.text = "Total: \$$it"
+                viewModel.totalLD.collect {total ->
+                    binding.totalPrice.text = getString(R.string.cart_subtotal, total)
                 }
             }
         }
