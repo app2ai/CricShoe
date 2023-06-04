@@ -1,6 +1,6 @@
 ### CrickBuzz Application
 
-# Please find below doc for this assignment to understand work flor
+# Please find below doc for this assignment to understand work flow
 
 1. This project is developed in clean MVVM architecture
 2. Used Room framework for DB integration
