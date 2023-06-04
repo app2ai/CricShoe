@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView.VERTICAL
 import com.example.cricshoeapp.R
 import com.example.cricshoeapp.ShoeApplication
 import com.example.cricshoeapp.databinding.FragmentShoeListBinding
+import com.example.cricshoeapp.utils.Constants.GRID_VIEW_SPAN_COUNT
 import com.example.cricshoeapp.utils.ShoeItemListener
 import com.example.cricshoeapp.viewmodel.Failed
 import com.example.cricshoeapp.viewmodel.InProgress
@@ -52,7 +53,7 @@ class ShoeListFragment : Fragment(), ShoeItemListener {
         viewModel.fetchAllShoeFromDb()
 
         with(binding.shoeRecyclerView){
-            layoutManager = GridLayoutManager(requireContext(), 2, VERTICAL, false)
+            layoutManager = GridLayoutManager(requireContext(), GRID_VIEW_SPAN_COUNT, VERTICAL, false)
             adapter = mAdapter
             setHasFixedSize(true)
         }

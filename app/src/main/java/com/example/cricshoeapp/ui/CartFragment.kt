@@ -133,6 +133,5 @@ class CartFragment : Fragment(), ShoeCartItemListener {
 
     override fun clickToRemoveItem(sId: Int) {
         viewModel.removeItemToCart(sId)
-        Toast.makeText(context, "Item $sId removed from cart", Toast.LENGTH_SHORT).show()
     }
 }

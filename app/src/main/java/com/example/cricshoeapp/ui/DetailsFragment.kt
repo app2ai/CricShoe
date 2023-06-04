@@ -78,6 +78,7 @@ class DetailsFragment : Fragment() {
         binding.realPrice.text = "\$${shoe.retail_price_cents / 100}"
         binding.btnAddToCart.setOnClickListener {
             viewModel.addItemToCart(shoe.id)
+            Toast.makeText(context, "Added to cart..", Toast.LENGTH_SHORT).show()
         }
         Picasso.get()
             .load(shoe.original_picture_url)
