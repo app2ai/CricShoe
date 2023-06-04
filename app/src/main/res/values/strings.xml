@@ -3,6 +3,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="price">Price: </string>
+    <string name="total_price">Total: </string>
     <string name="_1200">$1200</string>
     <string name="add_to_cart">Add To Cart</string>
     <string name="sneakership">SNEAKERSHIP</string>
@@ -16,7 +17,7 @@
     <!--Complex string-->
     <string name="cart_shoe_price">$%d</string>
     <string name="cart_subtotal">Subtotal: $%d</string>
-    <string name="cart_total">Total: $%d</string>
+    <string name="cart_total">$%d</string>
     <string name="details_brand_name">Brand: %s</string>
     <string name="details_rel_year">Year of Release: %d</string>
 </resources>

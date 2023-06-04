@@ -115,8 +115,8 @@ class CartFragment : Fragment(), ShoeCartItemListener {
         }
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.totalLD.collect {total ->
-                    binding.totalPrice.text = getString(R.string.cart_subtotal, total)
+                viewModel.totalLD.collect { total ->
+                    binding.totalPrice.text = getString(R.string.cart_total, total)
                 }
             }
         }
