@@ -13,4 +13,5 @@
     <color name="main_dark_btn">#FF9899</color>
     <color name="main_light">#FFCBC4</color>
     <color name="black_trans">#77252525</color>
+    <color name="fab_color">#2A9EFA</color>
 </resources>
