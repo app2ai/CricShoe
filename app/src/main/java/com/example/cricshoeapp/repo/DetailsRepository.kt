@@ -12,7 +12,7 @@ class DetailsRepository @Inject constructor(
         return dao.getShoes(id)
     }
 
-    fun updateCartStatus(id: Int) {
+    suspend fun updateCartStatus(id: Int) {
         dao.updateCartStatus(true, id)
     }
 }

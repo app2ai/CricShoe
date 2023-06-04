@@ -11,4 +11,8 @@ class SneakerRepository @Inject constructor(
     fun getAllShoes(): Flow<List<Sneaker>> {
         return dao.getAllShoes()
     }
+
+    suspend fun addSneakerToCart(id: Int) {
+        dao.updateCartStatus(true, id)
+    }
 }

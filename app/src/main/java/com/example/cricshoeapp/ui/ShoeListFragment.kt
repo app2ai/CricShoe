@@ -8,12 +8,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.VERTICAL
+import com.example.cricshoeapp.R
 import com.example.cricshoeapp.ShoeApplication
 import com.example.cricshoeapp.databinding.FragmentShoeListBinding
+import com.example.cricshoeapp.utils.ShoeItemListener
 import com.example.cricshoeapp.viewmodel.Failed
 import com.example.cricshoeapp.viewmodel.InProgress
 import com.example.cricshoeapp.viewmodel.ShoeListViewModel
@@ -21,11 +24,11 @@ import com.example.cricshoeapp.viewmodel.Success
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class ShoeListFragment : Fragment() {
+class ShoeListFragment : Fragment(), ShoeItemListener {
 
     private lateinit var binding: FragmentShoeListBinding
     private val mAdapter: ShoeAdapter by lazy {
-        ShoeAdapter()
+        ShoeAdapter(this)
     }
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -79,5 +82,14 @@ class ShoeListFragment : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         (requireActivity().application as ShoeApplication).appComponent.inject(this)
+    }
+
+    override fun clickToAddInCart(sId: Int) {
+        viewModel.addItemToCart(sId)
+        Toast.makeText(context, "Item $sId added to cart", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun clickToGoDetailPage(sId: Int) {
+        findNavController().navigate(R.id.detailsFragment, bundleOf("shoeId" to sId))
     }
 }

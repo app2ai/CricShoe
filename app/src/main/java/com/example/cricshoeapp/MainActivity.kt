@@ -44,13 +44,13 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val myNavController = navHostFragment.navController
 
-        myNavController.addOnDestinationChangedListener { cntr, dest, args ->
-            when (dest.id) {
-                R.id.shoeListFragment -> {
-                    myNavController.popBackStack(R.id.shoeListFragment, true)
-                }
-            }
-        }
+        // myNavController.addOnDestinationChangedListener { cntr, dest, args ->
+        //     when (dest.id) {
+        //         R.id.shoeListFragment -> {
+        //             myNavController.popBackStack(R.id.shoeListFragment, false)
+        //         }
+        //     }
+        // }
     }
 
     private fun observeData() {

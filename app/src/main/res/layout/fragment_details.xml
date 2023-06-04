@@ -16,16 +16,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/sneakerImgBig"
-        android:layout_width="match_parent"
+    <FrameLayout
+        android:id="@+id/frameBigImg"
+        android:layout_width="220dp"
         android:layout_height="220dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="32dp"
-        android:src="@drawable/baseline_downloading"
+        android:background="@drawable/circle_draw"
+        android:layout_gravity="center"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/backFromDetails" />
+        app:layout_constraintTop_toBottomOf="@id/backFromDetails"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+        <ImageView
+            android:id="@+id/sneakerImgBig"
+            android:layout_width="230dp"
+            android:layout_height="140dp"
+            android:layout_gravity="center"
+            />
+    </FrameLayout>
 
     <ScrollView
         android:id="@+id/scroll"
@@ -35,7 +45,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sneakerImgBig">
+        app:layout_constraintTop_toBottomOf="@id/frameBigImg">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/innerConstraint"
@@ -78,7 +88,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="42dp"
+                android:layout_marginTop="32dp"
                 android:layout_marginEnd="24dp"
                 android:gravity="start"
                 android:textColor="@color/black_trans"
@@ -93,7 +103,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="42dp"
+                android:layout_marginTop="32dp"
                 android:layout_marginEnd="24dp"
                 android:gravity="start"
                 android:textColor="@color/black_trans"
@@ -108,7 +118,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="42dp"
+                android:layout_marginTop="32dp"
                 android:layout_marginEnd="24dp"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -152,6 +162,7 @@
                     android:id="@+id/btnAddToCart"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/white"
                     android:backgroundTint="@color/main_dark_btn"
                     android:text="@string/add_to_cart" />
 

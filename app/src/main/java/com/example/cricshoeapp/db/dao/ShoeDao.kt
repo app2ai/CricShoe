@@ -22,5 +22,5 @@ interface ShoeDao {
     suspend fun deleteAll()
 
     @Query("Update tblShoe set isAddedToCart = :status where id = :sId")
-    fun updateCartStatus(status: Boolean, sId: Int)
+    suspend fun updateCartStatus(status: Boolean, sId: Int)
 }

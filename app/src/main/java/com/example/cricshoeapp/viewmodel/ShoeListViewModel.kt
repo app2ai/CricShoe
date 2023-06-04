@@ -29,6 +29,12 @@ class ShoeListViewModel @Inject constructor(
                 }
         }
     }
+
+    fun addItemToCart(id: Int) {
+        viewModelScope.launch {
+            repository.addSneakerToCart(id)
+        }
+    }
 }
 
 // Response sealed status

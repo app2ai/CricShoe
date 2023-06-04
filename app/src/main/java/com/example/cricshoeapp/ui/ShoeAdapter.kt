@@ -11,17 +11,25 @@ import com.example.cricshoeapp.R
 import com.example.cricshoeapp.databinding.FragmentShoeListBinding
 import com.example.cricshoeapp.databinding.ListShoeCardBinding
 import com.example.cricshoeapp.model.Sneaker
+import com.example.cricshoeapp.utils.ShoeItemListener
 import com.squareup.picasso.Picasso
 
-class ShoeAdapter : Adapter<ShoeAdapter.ShoeViewHolder>() {
+class ShoeAdapter(private val listener: ShoeItemListener) : Adapter<ShoeAdapter.ShoeViewHolder>() {
 
     private lateinit var binding: ListShoeCardBinding
+    private var slistener: ShoeItemListener = listener
 
     inner class ShoeViewHolder : ViewHolder(binding.root) {
         fun setData(item : Sneaker){
             binding.apply {
                 txtSneakPrice.text = "\$${item.retail_price_cents/100}"
                 txtShoeName.text = item.name
+                fabAddToCart.setOnClickListener {
+                    slistener.clickToAddInCart(item.id)
+                }
+                root.setOnClickListener {
+                    slistener.clickToGoDetailPage(item.id)
+                }
             }
             Picasso.get()
                 .load(item.grid_picture_url)

@@ -9,7 +9,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.cricshoeapp.R
 import com.example.cricshoeapp.ShoeApplication
 import com.example.cricshoeapp.databinding.FragmentDetailsBinding
 import com.example.cricshoeapp.model.Sneaker
@@ -17,6 +19,7 @@ import com.example.cricshoeapp.viewmodel.DetailsViewModel
 import com.example.cricshoeapp.viewmodel.OneFailed
 import com.example.cricshoeapp.viewmodel.OneInProgress
 import com.example.cricshoeapp.viewmodel.OneSuccess
+import com.squareup.picasso.Picasso
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -75,6 +78,14 @@ class DetailsFragment : Fragment() {
         binding.realPrice.text = "\$${shoe.retail_price_cents / 100}"
         binding.btnAddToCart.setOnClickListener {
             viewModel.addItemToCart(shoe.id)
+        }
+        Picasso.get()
+            .load(shoe.original_picture_url)
+            .fit()
+            .placeholder(R.drawable.baseline_downloading)
+            .into(binding.sneakerImgBig)
+        binding.backFromDetails.setOnClickListener {
+            findNavController().navigateUp()
         }
     }
 
