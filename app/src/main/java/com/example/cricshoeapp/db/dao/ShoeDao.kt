@@ -26,4 +26,7 @@ interface ShoeDao {
 
     @Query("Update tblShoe set isAddedToCart = :status where id = :sId")
     suspend fun updateCartStatus(status: Boolean, sId: Int)
+
+    @Query("Select * from tblShoe where name like :query")
+    fun getFilteredShoes(query: String): Flow<List<Sneaker>>
 }

@@ -48,7 +48,7 @@ class CartAdapter(private val listener: ShoeCartItemListener) : Adapter<CartAdap
 
     override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
         holder.setData(differCart.currentList[position])
-        holder.setIsRecyclable(false)
+        holder.setIsRecyclable(true)
     }
 
     private val differCallbackCart = object : DiffUtil.ItemCallback<Sneaker>() {

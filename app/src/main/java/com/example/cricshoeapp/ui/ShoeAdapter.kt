@@ -52,7 +52,7 @@ class ShoeAdapter(private val listener: ShoeItemListener) : Adapter<ShoeAdapter.
 
     override fun onBindViewHolder(holder: ShoeViewHolder, position: Int) {
         holder.setData(differ.currentList[position])
-        holder.setIsRecyclable(false)
+        holder.setIsRecyclable(true)
     }
 
     private val differCallback = object : DiffUtil.ItemCallback<Sneaker>() {

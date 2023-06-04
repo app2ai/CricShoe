@@ -7,7 +7,6 @@ import com.example.cricshoeapp.repo.SneakerRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -35,6 +34,19 @@ class ShoeListViewModel @Inject constructor(
             repository.addSneakerToCart(id)
         }
     }
+
+    fun filterSneakers(filterText: String) {
+        viewModelScope.launch {
+            repository.getFilteredSneakers(filterText)
+                .collect {
+                    if (it.isEmpty()) {
+                        _sneakerData.emit(NotAvailable(emptyList()))
+                    } else {
+                        _sneakerData.emit(Success(it))
+                    }
+                }
+        }
+    }
 }
 
 // Response sealed status
@@ -42,3 +54,4 @@ sealed class SneakerResponse
 data class Success(val shoes: List<Sneaker>) : SneakerResponse()
 object Failed : SneakerResponse()
 object InProgress : SneakerResponse()
+data class NotAvailable(val emptyList: List<Sneaker>) : SneakerResponse()
