@@ -15,6 +15,9 @@ interface ShoeDao {
     @Query("Select * from tblShoe")
     fun getAllShoes(): Flow<List<Sneaker>>
 
+    @Query("Select * from tblShoe where isAddedToCart = 1")
+    fun getOnlyCartShoes(): Flow<List<Sneaker>>
+
     @Query("Select * from tblShoe where id = :shoeId")
     fun getShoes(shoeId: Int): Flow<Sneaker>?
 

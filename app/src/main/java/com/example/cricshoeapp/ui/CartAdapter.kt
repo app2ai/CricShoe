@@ -1,25 +1,66 @@
 package com.example.cricshoeapp.ui
 
+import android.annotation.SuppressLint
+import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.AsyncListDiffer
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import com.example.cricshoeapp.databinding.FragmentCartBinding
+import com.example.cricshoeapp.R
+import com.example.cricshoeapp.databinding.CartListItemBinding
+import com.example.cricshoeapp.model.Sneaker
+import com.example.cricshoeapp.utils.ShoeCartItemListener
+import com.squareup.picasso.Picasso
 
-class CartAdapter : Adapter<CartAdapter.CartViewHolder>(){
-    lateinit var binding: FragmentCartBinding
+class CartAdapter(private val listener: ShoeCartItemListener) : Adapter<CartAdapter.CartViewHolder>(){
+
+    lateinit var binding: CartListItemBinding
+    private var mlistener: ShoeCartItemListener = listener
+
     inner class CartViewHolder: ViewHolder(binding.root) {
-
+        fun setData(item : Sneaker){
+            binding.apply {
+                txtShoeName.text = item.name
+                txtShoePrice.text = "\$${item.retail_price_cents/100}"
+                btnRemoveFromCart.setOnClickListener {
+                    mlistener.clickToRemoveItem(item.id)
+                }
+            }
+            Picasso.get()
+                .load(item.main_picture_url)
+                .fit()
+                .placeholder(R.drawable.baseline_downloading)
+                .into(binding.imgCartSneaker)
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
-        TODO("Not yet implemented")
+        binding = CartListItemBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
+        )
+        return CartViewHolder()
     }
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
-    }
+    override fun getItemCount() = differCart.currentList.size
 
     override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        holder.setData(differCart.currentList[position])
+        holder.setIsRecyclable(false)
     }
+
+    private val differCallbackCart = object : DiffUtil.ItemCallback<Sneaker>() {
+        override fun areItemsTheSame(oldItem: Sneaker, newItem: Sneaker): Boolean {
+            return oldItem.id == newItem.id
+        }
+
+        @SuppressLint("DiffUtilEquals")
+        override fun areContentsTheSame(oldItem: Sneaker, newItem: Sneaker): Boolean {
+            return oldItem == newItem
+        }
+    }
+
+    val differCart = AsyncListDiffer(this, differCallbackCart)
 }

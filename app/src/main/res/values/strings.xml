@@ -6,5 +6,10 @@
     <string name="_1200">$1200</string>
     <string name="add_to_cart">Add To Cart</string>
     <string name="sneakership">SNEAKERSHIP</string>
+    <string name="cart_title">Cart</string>
     <string name="popular">Popular</string>
+    <string name="order_details">Order Details</string>
+    <string name="remove">Remove</string>
+    <string name="checkout">$ Check Out</string>
+    <string name="tx_chrgs">Taxes and Charges: $40</string>
 </resources>

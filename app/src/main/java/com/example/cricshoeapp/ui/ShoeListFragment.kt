@@ -9,7 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.os.bundleOf
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView.VERTICAL
@@ -54,25 +56,29 @@ class ShoeListFragment : Fragment(), ShoeItemListener {
             adapter = mAdapter
             setHasFixedSize(true)
         }
-
+        binding.fabGoToCart.setOnClickListener{
+            findNavController().navigate(R.id.cartFragment)
+        }
         observeData()
     }
 
     private fun observeData() {
         lifecycleScope.launch{
-            viewModel.sneakerData.collect{
-                when(it) {
-                    InProgress -> {
-                        binding.progressBar.visibility = View.VISIBLE
-                    }
-                    Failed -> {
-                        binding.progressBar.visibility = View.GONE
-                        Toast.makeText(context, "Oops, unable to load data. Please clear data and Retry", Toast.LENGTH_LONG).show()
-                    }
-                    is Success -> {
-                        binding.progressBar.visibility = View.GONE
-                        // Set data to recycler
-                        mAdapter.differ.submitList(it.shoes)
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.sneakerData.collect{
+                    when(it) {
+                        InProgress -> {
+                            binding.progressBar.visibility = View.VISIBLE
+                        }
+                        Failed -> {
+                            binding.progressBar.visibility = View.GONE
+                            Toast.makeText(context, "Oops, unable to load data. Please clear data and Retry", Toast.LENGTH_LONG).show()
+                        }
+                        is Success -> {
+                            binding.progressBar.visibility = View.GONE
+                            // Set data to recycler
+                            mAdapter.differ.submitList(it.shoes)
+                        }
                     }
                 }
             }
