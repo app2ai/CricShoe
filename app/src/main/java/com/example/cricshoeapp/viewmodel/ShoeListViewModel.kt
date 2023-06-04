@@ -17,18 +17,6 @@ class ShoeListViewModel @Inject constructor(
     private var _sneakerData = MutableStateFlow<SneakerResponse>(InProgress)
     val sneakerData: StateFlow<SneakerResponse> = _sneakerData
 
-    fun fetchAllShoeFromDb() {
-        viewModelScope.launch {
-            repository.getAllShoes()
-                .catch {
-                    _sneakerData.emit(Failed)
-                }
-                .collect{
-                    _sneakerData.emit(Success(it))
-                }
-        }
-    }
-
     fun addItemToCart(id: Int) {
         viewModelScope.launch {
             repository.addSneakerToCart(id)
@@ -38,6 +26,9 @@ class ShoeListViewModel @Inject constructor(
     fun filterSneakers(filterText: String) {
         viewModelScope.launch {
             repository.getFilteredSneakers(filterText)
+                .catch {
+                    _sneakerData.emit(Failed)
+                }
                 .collect {
                     if (it.isEmpty()) {
                         _sneakerData.emit(NotAvailable(emptyList()))

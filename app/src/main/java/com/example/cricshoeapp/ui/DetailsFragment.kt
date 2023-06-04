@@ -52,11 +52,9 @@ class DetailsFragment : Fragment() {
         lifecycleScope.launch {
             viewModel.sneakerData.collect {
                 when (it) {
-                    OneInProgress -> Toast.makeText(
-                        context,
-                        "Sneaker loading..",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    OneInProgress -> {
+                        // TODO: Show loading bar
+                    }
                     OneFailed -> Toast.makeText(
                         context,
                         "Sneaker not loaded, please select again",

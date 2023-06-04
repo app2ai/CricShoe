@@ -8,15 +8,11 @@ import kotlinx.coroutines.flow.Flow
 class SneakerRepository @Inject constructor(
     private val dao: ShoeDao
 ) {
-    fun getAllShoes(): Flow<List<Sneaker>> {
-        return dao.getAllShoes()
-    }
-
     suspend fun addSneakerToCart(id: Int) {
         dao.updateCartStatus(true, id)
     }
 
-    fun getFilteredSneakers(qString: String) : Flow<List<Sneaker>> {
-        return dao.getFilteredShoes(qString)
+    fun getFilteredSneakers(qString: String): Flow<List<Sneaker>> {
+        return if (qString.isEmpty()) dao.getAllShoes() else dao.getFilteredShoes(qString)
     }
 }

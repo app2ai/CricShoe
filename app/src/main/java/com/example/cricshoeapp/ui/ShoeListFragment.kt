@@ -53,7 +53,6 @@ class ShoeListFragment : Fragment(), ShoeItemListener, SearchView.OnQueryTextLis
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.fetchAllShoeFromDb()
 
         with(binding.shoeRecyclerView) {
             layoutManager =
